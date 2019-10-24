@@ -197,3 +197,23 @@ String[] arrWords = Arrays.stream("ACBGT".split("[^a-zA-Z-]+"))
 .filter(s -> !s.isEmpty())
 .toArray(String[]::new);
 ```
+
+###### Counts occurrences in a list of Persons
+```java
+List<Person> list = new ArrayList<>();
+        Person p1 = countTransactionsByPerson.new Person();
+        p1.name = "John";
+        Person p2 = countTransactionsByPerson.new Person();
+        p2.name = "Alice";
+        Person p3 = countTransactionsByPerson.new Person();
+        p3.name = "Frederik";
+        Person p4 = countTransactionsByPerson.new Person();
+        p4.name = "Frederik";
+        list.add(p1);
+        list.add(p2);
+        list.add(p3);
+        list.add(p4);
+        Map<String, Long> counts =
+            list.stream().collect(Collectors.groupingBy(e -> e.name, Collectors.counting()));
+        counts.forEach((k, v) -> System.out.println(k + " " + v));
+```
